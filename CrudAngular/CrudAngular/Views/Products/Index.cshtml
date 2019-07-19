@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div data-ng-app="mvcCrud" data-ng-controller="CrudCtrl" style="margin-top:30px;">
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Operation</th>
+        </tr>
+
+        <tr data-ng-repeat="product in Products">
+            <td>{{product.Id}}</td>
+            <td>{{product.Name}}</td>
+            <td>{{product.Price}}</td>
+            <td>
+                <span class="btn btn-primary" data-ng-click="EditFunction(product)">Edit</span>
+                <span class="btn btn-danger" data-ng-click="DeleteFunction(product.Id)">Delete</span>
+            </td>
+        </tr>
+    </table>
+
+       <span class="btn btn-primary" data-ng-click="AddProduct()">
+          Add Product
+       </span>
+
+       <div ng-show="divAdd" style="margin-top:30px;">
+           <table>
+               <tr>
+                   <td>Id</td>
+                   <td>
+                       <input disabled type="text" data-ng-model="productId" />
+                   </td>
+               </tr>
+               <tr>
+                   <td>Name</td>
+                   <td>
+                       <input type="text" data-ng-model="productName" />
+                   </td>
+               </tr>
+               <tr>
+                   <td>Price</td>
+                   <td>
+                       <input type="text" data-ng-model="productPrice" />
+                   </td>
+               </tr>
+
+               <tr>
+                   <td>
+                       <span style="margin-top:15px;" class="btn btn-primary" data-ng-click="AddUpdateProduct()">Save</span>
+                       <span style="margin-top:15px;" class="btn btn-info" data-ng-click="Close()">Close</span>
+                   </td>
+               </tr>
+           </table>
+       </div>
+
+      
+</div>
+
+
+
